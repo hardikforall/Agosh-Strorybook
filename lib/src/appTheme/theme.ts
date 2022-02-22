@@ -20,6 +20,10 @@ export const lightMode = {
       '0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
     elevationFilter: 'none',
     transparent: 'transparent',
+    // FAB
+    fabDisabledIcons: '#1D1B1E55', // #1D1B1E & opacity: 0.38,
+    fabDisabledText: '#1f1f1f61', // rgb(31 31 31 / 38%);
+    fabDisabledBg: '#1f1f1f1f', // rgba(31, 31, 31, 0.12);
   },
   shadows: tokens.lightMode.shadows,
 };
@@ -41,6 +45,10 @@ export const darkMode = {
     elevation2: '0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
     elevationFilter: 'drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3))',
     transparent: 'transparent',
+    // FAB
+    fabDisabledIcons: '#e7e1e661', // #E7E1E6 and opacity: 0.38
+    fabDisabledText: '#e7e1e661', // #E7E1E6 and opacity: 0.38
+    fabDisabledBg: '#e3e3e31f', // rgba(227, 227, 227, 0.12) or #E3E3E3 12%
   },
   shadows: tokens.darkMode.shadows,
 };
@@ -51,10 +59,21 @@ const theme = {
   shadows: { ...lightMode.shadows },
 
   // FIXME: Following properties are not available on the DSP at this moment.
-  space: (unit: number) => `${unit * 8}px`,
+  space: (unit: number) => `${unit * 0.5}rem`,
   borderRadius: {
     rounded: '100rem',
   },
+
+  fabIconSizeNormal: '24px',
+  fabIconSizeLarge: '36px',
+  fabBorderRadiusDefault: '16px',
+  fabBorderRadiusLarge: '28px',
+  fabHeightDefault: '56px',
+  fabHeightLarge: '96px',
+  fabWidthDefault: '56px',
+  fabWidthLarge: '96px',
+
+  cardBorderRadius: '0.75rem',
 };
 
 export type Theme = typeof theme;
@@ -64,5 +83,7 @@ export type ThemeProps = { theme: Theme };
 export type ColorType = keyof Theme['colors'];
 
 export type BorderRadius = keyof Theme['borderRadius'];
+
+export type Elevation = keyof Theme['shadows'];
 
 export default theme;

@@ -14,3 +14,12 @@ export enum ColorMode {
 }
 
 export type SetColorMode = (_mode: keyof typeof ColorMode) => void;
+
+export type ElevationValue = {
+  shadowType: string;
+  radius: number;
+  color: string;
+  offsetX: number;
+  offsetY: number;
+  spread: number;
+};

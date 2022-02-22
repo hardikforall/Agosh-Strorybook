@@ -2,7 +2,13 @@ import { useContext, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ThemeProps } from './theme';
 
-import { getColor, getSpace, getCommon, getBorderRadius } from './getters';
+import {
+  getColor,
+  getSpace,
+  getCommon,
+  getBorderRadius,
+  getElevation,
+} from './getters';
 import { OmitThemeProp, SetColorMode } from './types';
 import { useTheme as useColorMode } from 'next-themes';
 
@@ -28,8 +34,9 @@ export default function useTheme() {
 
     return {
       color: partialGetter(getColor, themeProps),
-      space: partialGetter(getSpace, themeProps),
+      spacing: partialGetter(getSpace, themeProps),
       borderRadius: partialGetter(getBorderRadius, themeProps),
+      elevation: partialGetter(getElevation, themeProps),
       common: partialGetter(getCommon, themeProps),
       setColorMode,
       colorMode,
