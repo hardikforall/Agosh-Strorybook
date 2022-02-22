@@ -55,8 +55,8 @@ export const lightMode = ${JSON.stringify(lightMode, null, 2)};
 
 export const darkMode = ${JSON.stringify(darkMode, null, 2)};
 
-export const common = ${JSON.stringify(common, null, 2)};  
+export const common = ${JSON.stringify(common, null, 2)};
 `
 
-fs.writeFileSync("../lib/src/app-theme/tokens.ts", themeString)
+fs.writeFileSync("../lib/src/appTheme/tokens.ts", themeString)
 console.log("✔ tokens generated successfully.")

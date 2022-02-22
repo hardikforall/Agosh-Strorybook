@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "",
+  "sources": [
+    "../../src/appTheme/index.ts"
+  ],
+  "names": [],
+  "mappings": "AAAA,OAAO,KAAK,KAAK,MAAM,aAAa,CAAC;AACrC,OAAO,QAAQ,MAAM,YAAY,CAAC;AAClC,OAAO,YAAuB,MAAM,SAAS,CAAC;AAE9C,OAAO,EAAE,KAAK,EAAE,QAAQ,EAAE,YAAY,EAAE,CAAC"
+}

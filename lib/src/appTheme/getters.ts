@@ -1,4 +1,10 @@
-import defaultTheme, { ColorType, ThemeProps, BorderRadius } from './theme';
+import defaultTheme, {
+  ColorType,
+  ThemeProps,
+  BorderRadius,
+  Elevation,
+} from './theme';
+import { ElevationValue } from './types';
 
 function getTheme(props: ThemeProps) {
   return props.theme && props.theme.colors ? props.theme : defaultTheme;
@@ -6,6 +12,18 @@ function getTheme(props: ThemeProps) {
 
 export function getColor(type: ColorType, props: ThemeProps) {
   return getTheme(props).colors[type];
+}
+
+export function getElevation(type: Elevation, props: ThemeProps) {
+  const found: ElevationValue = getTheme(props).shadows[type];
+
+  if (!found) return '';
+
+  const { radius, color, offsetX, offsetY, spread } = found;
+
+  return `${offsetX}px ${offsetY}px ${radius}px ${
+    spread ? `${spread}px ` : ' '
+  }${color}`;
 }
 
 export function getSpace(unit: number, props: ThemeProps) {
@@ -30,6 +48,7 @@ export function getCommon(key: keyof PartialTheme, props: ThemeProps) {
     'lineHeight' in value &&
     typeof value.lineHeight !== 'string'
   ) {
+    // TODO: convert to rem instead of PX
     value['lineHeight'] = `${value['lineHeight']}px` as any;
   }
 

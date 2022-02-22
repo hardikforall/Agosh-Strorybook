@@ -1,6 +1,12 @@
 import { ThemeProps } from './theme';
 
-import { getColor, getSpace, getCommon, getBorderRadius } from './getters';
+import {
+  getColor,
+  getSpace,
+  getCommon,
+  getBorderRadius,
+  getElevation,
+} from './getters';
 
 import { OmitThemeProp, Resolver } from './types';
 
@@ -21,4 +27,5 @@ function createSelector<T extends (...args: any) => any>(getter: T) {
 export const color = createSelector(getColor);
 export const spacing = createSelector(getSpace);
 export const borderRadius = createSelector(getBorderRadius);
+export const elevation = createSelector(getElevation);
 export const common = createSelector(getCommon);

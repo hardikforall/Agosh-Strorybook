@@ -1,16 +1,16 @@
-import MuiButton from '@material-ui/core/Button';
-import styled, { css } from 'styled-components';
-import type { ButtonProps } from './Button';
-import { theme } from '../../app-theme';
-import { Resolver } from '../../app-theme/types';
+import MuiButton from '@material-ui/core/Button'
+import styled, { css } from 'styled-components'
+import type { ButtonProps } from './Button'
+import { theme } from '../../appTheme'
+import { Resolver } from '../../appTheme/types'
 
-type Color = Resolver<string>;
-type BgColor = Resolver<string>;
-type BoxShadow = Resolver<string>;
+type Color = Resolver<string>
+type BgColor = Resolver<string>
+type BoxShadow = Resolver<string>
 
 export const TextWrapper = styled.span`
   pointer-events: none;
-`;
+`
 
 export const IconWrapper = styled.span`
   margin-right: ${theme.spacing(1)};
@@ -21,7 +21,7 @@ export const IconWrapper = styled.span`
   flex-grow: 0;
   min-width: 18px;
   height: 18px;
-`;
+`
 
 const baseStyles = css<ButtonProps>`
   ${theme.common('M3LabelLarge')};
@@ -79,22 +79,22 @@ const baseStyles = css<ButtonProps>`
       opacity: 0.38;
     }
   }
-`;
+`
 
 interface GetBackground {
-  defaultBg: BgColor;
-  hoverBg?: BgColor;
-  hoverOpacity?: number;
-  focusBg?: BgColor;
-  focusOpacity?: number;
-  activeBg?: BgColor;
-  activeOpacity?: number;
-  hoverBg2?: BgColor;
-  hoverOpacity2?: number;
-  focusBg2?: BgColor;
-  focusOpacity2?: number;
-  activeBg2?: BgColor;
-  activeOpacity2?: number;
+  defaultBg: BgColor
+  hoverBg?: BgColor
+  hoverOpacity?: number
+  focusBg?: BgColor
+  focusOpacity?: number
+  activeBg?: BgColor
+  activeOpacity?: number
+  hoverBg2?: BgColor
+  hoverOpacity2?: number
+  focusBg2?: BgColor
+  focusOpacity2?: number
+  activeBg2?: BgColor
+  activeOpacity2?: number
 }
 
 /**
@@ -119,7 +119,7 @@ const getBackground = ({
   focusBg2,
   focusOpacity2,
   activeBg2,
-  activeOpacity2,
+  activeOpacity2
 }: GetBackground) => css`
   &:before {
     background-color: ${defaultBg};
@@ -172,14 +172,14 @@ const getBackground = ({
       opacity: ${activeOpacity2};
     `}
   }
-`;
+`
 
 const getBoxShadow = ({
   hoverBoxShadow,
-  nonHoverBoxShadow,
+  nonHoverBoxShadow
 }: {
-  hoverBoxShadow?: BoxShadow;
-  nonHoverBoxShadow?: BoxShadow;
+  hoverBoxShadow?: BoxShadow
+  nonHoverBoxShadow?: BoxShadow
 }) => css`
   box-shadow: ${nonHoverBoxShadow || (() => 'none')};
 
@@ -191,7 +191,7 @@ const getBoxShadow = ({
   &:focus {
     box-shadow: ${nonHoverBoxShadow || (() => 'none')};
   }
-`;
+`
 
 /**
  * For background color, update ::before styling
@@ -203,13 +203,13 @@ const getDisabledStyles = ({
   bgColor,
   bgOpacity,
   borderColor,
-  borderOpacity,
+  borderOpacity
 }: {
-  bgColor: BgColor;
-  color: Color;
-  bgOpacity: number;
-  borderColor?: Color;
-  borderOpacity?: number;
+  bgColor: BgColor
+  color: Color
+  bgOpacity: number
+  borderColor?: Color
+  borderOpacity?: number
 }) => css`
   color: ${color};
 
@@ -229,7 +229,7 @@ const getDisabledStyles = ({
       opacity: ${borderOpacity};
     `}
   }
-`;
+`
 
 /**
  * for border user the ::after element
@@ -238,12 +238,12 @@ const getBorderStyles = ({
   defaultBorderColor,
   hoverBorderColor,
   focusBorderColor,
-  activeBorderColor,
+  activeBorderColor
 }: {
-  defaultBorderColor: Color;
-  hoverBorderColor: Color;
-  focusBorderColor: Color;
-  activeBorderColor: Color;
+  defaultBorderColor: Color
+  hoverBorderColor: Color
+  focusBorderColor: Color
+  activeBorderColor: Color
 }) => css`
   &:after {
     border: 1px solid ${defaultBorderColor};
@@ -260,7 +260,7 @@ const getBorderStyles = ({
   &:active:after {
     border: 1px solid ${activeBorderColor};
   }
-`;
+`
 
 /**
  * Based on different variations of the buttons, following utils can be used.
@@ -284,7 +284,7 @@ export const StyledButton = styled(MuiButton)`
             getDisabledStyles({
               color: theme.color('OnSurface'),
               bgColor: theme.color('disabledBg'),
-              bgOpacity: 0.12,
+              bgOpacity: 0.12
             })}
 
             ${!disabled &&
@@ -298,14 +298,14 @@ export const StyledButton = styled(MuiButton)`
               focusBg2: theme.color('OnPrimary'),
               focusOpacity2: 0.12,
               activeBg2: theme.color('OnPrimary'),
-              activeOpacity2: 0.12,
+              activeOpacity2: 0.12
             })};
 
             ${!disabled &&
             getBoxShadow({
-              hoverBoxShadow: theme.color('elevation1'),
+              hoverBoxShadow: theme.color('elevation1')
             })}
-          `;
+          `
         }
 
         case 'outlined': {
@@ -318,7 +318,7 @@ export const StyledButton = styled(MuiButton)`
               bgColor: theme.color('transparent'),
               bgOpacity: 0.12,
               borderColor: theme.color('disabledBorder'),
-              borderOpacity: 0.12,
+              borderOpacity: 0.12
             })}
 
             ${!disabled &&
@@ -329,7 +329,7 @@ export const StyledButton = styled(MuiButton)`
               focusBg: theme.color('textButtonBg'),
               focusOpacity: 0.12,
               activeBg: theme.color('textButtonBg'),
-              activeOpacity: 0.12,
+              activeOpacity: 0.12
             })};
 
             ${!disabled &&
@@ -337,9 +337,9 @@ export const StyledButton = styled(MuiButton)`
               defaultBorderColor: theme.color('Outline'),
               hoverBorderColor: theme.color('Outline'),
               focusBorderColor: theme.color('Primary'),
-              activeBorderColor: theme.color('Outline'),
+              activeBorderColor: theme.color('Outline')
             })}
-          `;
+          `
         }
 
         case 'text': {
@@ -350,7 +350,7 @@ export const StyledButton = styled(MuiButton)`
             getDisabledStyles({
               color: theme.color('OnSurface'), // end with 66 for 38% opacity
               bgColor: theme.color('transparent'),
-              bgOpacity: 0,
+              bgOpacity: 0
             })}
 
             ${!disabled &&
@@ -361,9 +361,9 @@ export const StyledButton = styled(MuiButton)`
               focusBg: theme.color('textButtonBg'),
               focusOpacity: 0.12,
               activeBg: theme.color('textButtonBg'),
-              activeOpacity: 0.12,
+              activeOpacity: 0.12
             })};
-          `;
+          `
         }
 
         case 'elevated': {
@@ -374,15 +374,15 @@ export const StyledButton = styled(MuiButton)`
             getDisabledStyles({
               color: theme.color('OnSurface'),
               bgColor: theme.color('disabledBg'),
-              bgOpacity: 0.12,
+              bgOpacity: 0.12
             })}
 
             ${!disabled && `filter: ${theme.color('elevationFilter')}`}
-          
+
           ${!disabled &&
             getBoxShadow({
               nonHoverBoxShadow: theme.color('elevation1'),
-              hoverBoxShadow: theme.color('elevation2'),
+              hoverBoxShadow: theme.color('elevation2')
             })}
 
 
@@ -391,9 +391,9 @@ export const StyledButton = styled(MuiButton)`
               defaultBg: theme.color('elevatedDefaultBg'),
               hoverBg: theme.color('elevatedHoverBg'),
               focusBg: theme.color('elevatedFocusBg'),
-              activeBg: theme.color('elevatedActiveBg'),
+              activeBg: theme.color('elevatedActiveBg')
             })};
-          `;
+          `
         }
 
         case 'tonal': {
@@ -404,7 +404,7 @@ export const StyledButton = styled(MuiButton)`
             getDisabledStyles({
               color: theme.color('OnSurface'),
               bgColor: theme.color('disabledBg'),
-              bgOpacity: 0.12,
+              bgOpacity: 0.12
             })}
 
             ${!disabled &&
@@ -415,16 +415,16 @@ export const StyledButton = styled(MuiButton)`
               focusBg2: theme.color('tonalHoverBg'),
               focusOpacity2: 0.12,
               activeBg2: theme.color('tonalHoverBg'),
-              activeOpacity2: 0.12,
+              activeOpacity2: 0.12
             })};
 
             ${!disabled &&
             getBoxShadow({
-              hoverBoxShadow: theme.color('elevation1'),
+              hoverBoxShadow: theme.color('elevation1')
             })}
-          `;
+          `
         }
       }
     }}
   }
-`;
+`
